@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>Meditation Timer</title>
 </head>
 <body>
   <div class="main" role="main">
     <div class="timer">
+      <h1 class="main-heading">Meditation Timer</h1>
       <form class="time-form js-time-form">
-        <label for="time">Time:</label>
-          <input type="text" class="time-input js-time-input" name="time" id="time" placeholder="10:00" required>
+        <label for="time">Time (in minutes):</label>
+          <input type="text" class="time-input js-time-input" name="time" id="time" placeholder="20" size="3" max-length="3" required>
           <button class="timer-button js-timer-button">Start Meditating!</button>
       </form>
     </div>
