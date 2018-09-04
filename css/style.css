@@ -47,9 +47,19 @@ body {
 }
 
 .time-input {
+  border-radius: .5rem;
   font-size: 2rem;
-  padding: .5rem 1rem;
+  width: 7rem;
+  padding: .5rem .5rem .5rem 1rem;
   margin-bottom: 1.8rem;
+}
+
+.time-input-error {
+  color: #b24a59;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: -1.5rem;
+  margin-bottom: 1rem;
 }
 
 .timer-button {
@@ -61,5 +71,5 @@ body {
   margin: 0 auto;
   font-size: 2.4rem;
   padding: 1.2rem;
-  width: 68%;
+  width: 67%;
 }
