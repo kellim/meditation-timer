@@ -25,7 +25,7 @@ clockButtonsUl.addEventListener('click', event => {
   } else if (event.target.classList.contains('js-pause-icon')) {
     pause(event);
   } else if (event.target.classList.contains('js-stop-icon')) {
-    stop(event);
+    stop();
   } else if (event.target.classList.contains('js-restart-icon')) {
     console.log('restart');
   }
@@ -94,11 +94,17 @@ function play(event) {
   timer(secondsLeft);
 }
 
-function stop(event) {
+function stop() {
   clearInterval(medTimer);
   medTimer = null;
   toggleClock();
   toggleTimeForm();
+  // If you pause before clicking stop, make sure
+  // play button will be disabled and pause button
+  // enabled next time you start the clock.
+  if (pauseIcon.classList.contains('inactive-icon')) {
+    playIcon.classList.add('inactive-icon');
+    pauseIcon.classList.remove('inactive-icon');
+  }
 }
-
 })()
