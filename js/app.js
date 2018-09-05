@@ -99,9 +99,7 @@ function stop() {
   medTimer = null;
   toggleClock();
   toggleTimeForm();
-  // If you pause before clicking stop, make sure
-  // play button will be disabled and pause button
-  // enabled next time you start the clock.
+  // Make play inactive and pause active if you click stop while paused.
   if (pauseIcon.classList.contains('inactive-icon')) {
     playIcon.classList.add('inactive-icon');
     pauseIcon.classList.remove('inactive-icon');
