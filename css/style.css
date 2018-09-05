@@ -89,6 +89,10 @@ body {
   text-align: center;
 }
 
+.inactive-icon {
+  color: rgba(0, 0, 0, 0.26);
+}
+
 .clock-button {
   display: inline;
 }

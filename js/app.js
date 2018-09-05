@@ -5,13 +5,33 @@ const timeButton = timeForm.querySelector('.js-timer-button');
 const timeError = timeForm.querySelector('.time-input-error');
 const clockContainerDiv = document.querySelector('.js-clock-container');
 const clockEl = document.querySelector('.js-clock');
+const clockButtonsUl = clockContainerDiv.querySelector('.js-clock-buttons');
+const playIcon = clockContainerDiv.querySelector('.js-play-icon');
+const pauseIcon = clockContainerDiv.querySelector('.js-pause-icon');
 let medTimer;
-let seconds;
+let seconds, secondsLeft;
 
 timeForm.addEventListener('submit', event => {
   event.preventDefault();
   processTimeForm(event);
-})
+});
+
+clockButtonsUl.addEventListener('click', event => {
+  if (event.target.classList.contains('inactive-icon')) {
+    return;
+  }
+  if (event.target.classList.contains('js-play-icon')) {
+    play(event);
+    console.log('play');
+  } else if (event.target.classList.contains('js-pause-icon')) {
+    console.log('pause');
+    pause(event);
+  } else if (event.target.classList.contains('js-stop-icon')) {
+    console.log('stop');
+  } else if (event.target.classList.contains('js-restart-icon')) {
+    console.log('restart');
+  }
+});
 
 
 function processTimeForm(event) {
@@ -34,11 +54,14 @@ function processTimeForm(event) {
 function timer(seconds) {
   const now = Date.now();
   const then = now + seconds * 1000;
-  toggleTimeForm();
-  toggleClock();
+  if (!medTimer) {
+    toggleTimeForm();
+    toggleClock();
+  }
+
   displayTime(seconds);
   medTimer = setInterval(() => {
-    const secondsLeft = Math.round((then - Date.now()) / 1000);
+    secondsLeft = Math.round((then - Date.now()) / 1000);
     if (secondsLeft <= 0) {
       clearInterval(medTimer);
     }
@@ -59,6 +82,17 @@ function toggleTimeForm() {
 
 function toggleClock() {
   clockContainerDiv.style.display = window.getComputedStyle(clockContainerDiv).display === 'block' ? 'none' : 'block';
+}
+
+function pause(event) {
+  event.target.classList.add('inactive-icon');
+  playIcon.classList.remove('inactive-icon');
+  clearInterval(medTimer);
+}
+
+function play(event) {
+  event.target.classList.add('inactive-icon');
+  pauseIcon.classList.remove('inactive-icon');
 }
 
 })()
