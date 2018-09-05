@@ -27,7 +27,7 @@ clockButtonsUl.addEventListener('click', event => {
   } else if (event.target.classList.contains('js-stop-icon')) {
     stop();
   } else if (event.target.classList.contains('js-restart-icon')) {
-    console.log('restart');
+    restart();
   }
 });
 
@@ -105,4 +105,10 @@ function stop() {
     pauseIcon.classList.remove('inactive-icon');
   }
 }
+
+function restart() {
+  clearInterval(medTimer);
+  timer(seconds);
+}
+
 })()
