@@ -22,12 +22,10 @@ clockButtonsUl.addEventListener('click', event => {
   }
   if (event.target.classList.contains('js-play-icon')) {
     play(event);
-    console.log('play');
   } else if (event.target.classList.contains('js-pause-icon')) {
-    console.log('pause');
     pause(event);
   } else if (event.target.classList.contains('js-stop-icon')) {
-    console.log('stop');
+    stop(event);
   } else if (event.target.classList.contains('js-restart-icon')) {
     console.log('restart');
   }
@@ -95,4 +93,12 @@ function play(event) {
   pauseIcon.classList.remove('inactive-icon');
   timer(secondsLeft);
 }
+
+function stop(event) {
+  clearInterval(medTimer);
+  medTimer = null;
+  toggleClock();
+  toggleTimeForm();
+}
+
 })()
