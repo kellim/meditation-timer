@@ -93,6 +93,6 @@ function pause(event) {
 function play(event) {
   event.target.classList.add('inactive-icon');
   pauseIcon.classList.remove('inactive-icon');
+  timer(secondsLeft);
 }
-
 })()
