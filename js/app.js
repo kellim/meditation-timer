@@ -26,7 +26,6 @@ function processTimeForm(event) {
   }
   seconds = timeInputValue * 60; 
   timer(seconds);
-  
 }
 
 // Adapted code from Vanilla JS Countdown Timer - #JavaScript30 29/30
@@ -51,8 +50,7 @@ function displayTime(seconds) {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor(((seconds % 3600) / 60));
   const displaySeconds = seconds % 60;
-  clockEl.innerText = `${('0' + hours).slice(-2)}:${('0' + minutes).slice(-2)}:${('0' + displaySeconds).slice(-2)}`
-  // console.log('hours:', hours, 'minutes:', minutes, 'seconds:', displaySeconds);
+  clockEl.innerText = `${('0' + hours).slice(-2)}:${('0' + minutes).slice(-2)}:${('0' + displaySeconds).slice(-2)}`;
 }
 
 function toggleTimeForm() {
