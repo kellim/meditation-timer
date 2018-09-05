@@ -73,3 +73,12 @@ body {
   padding: 1.2rem;
   width: 67%;
 }
+
+
+.clock-container {
+  display: none;
+}
+
+.clock {
+  font-size: 7rem;
+}
