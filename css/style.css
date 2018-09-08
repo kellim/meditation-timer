@@ -107,6 +107,7 @@ body {
 }
 
 .modal {
+  display: none;
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -144,6 +145,8 @@ body {
 }
 
 .modal-close-button {
+  background-color: transparent;
+  border: none;
   position: absolute;
   top: 1.4rem;
   right: 1.4rem;

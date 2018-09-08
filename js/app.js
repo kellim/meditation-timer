@@ -8,13 +8,21 @@ const clockEl = document.querySelector('.js-clock');
 const clockButtonsUl = clockContainerDiv.querySelector('.js-clock-buttons');
 const playIcon = clockContainerDiv.querySelector('.js-play-icon');
 const pauseIcon = clockContainerDiv.querySelector('.js-pause-icon');
+const modalDiv = document.querySelector('.js-modal');
+const modalCloseBtn = modalDiv.querySelector('.js-modal-close-button');
+const modalBtn = modalDiv.querySelector('.js-modal-button')
 let medTimer;
 let seconds, secondsLeft;
+
+
 
 timeForm.addEventListener('submit', event => {
   event.preventDefault();
   processTimeForm(event);
 });
+
+modalCloseBtn.addEventListener('click', closeModal);
+modalBtn.addEventListener('click', closeModal);
 
 clockButtonsUl.addEventListener('click', event => {
   if (event.target.classList.contains('inactive-icon')) {
@@ -62,6 +70,7 @@ function timer(seconds) {
     secondsLeft = Math.round((then - Date.now()) / 1000);
     if (secondsLeft <= 0) {
       clearInterval(medTimer);
+      openModal();
     }
     displayTime(secondsLeft);
   }, 1000)
@@ -109,6 +118,15 @@ function stop() {
 function restart() {
   clearInterval(medTimer);
   timer(seconds);
+}
+
+function closeModal() {
+  modalDiv.style.display = 'none';
+  stop();
+}
+
+function openModal() {
+  modalDiv.style.display = 'block';
 }
 
 })()
