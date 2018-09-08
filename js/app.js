@@ -6,8 +6,8 @@ const timeError = timeForm.querySelector('.time-input-error');
 const clockContainerDiv = document.querySelector('.js-clock-container');
 const clockEl = document.querySelector('.js-clock');
 const clockButtonsUl = clockContainerDiv.querySelector('.js-clock-buttons');
-const playIcon = clockContainerDiv.querySelector('.js-play-icon');
-const pauseIcon = clockContainerDiv.querySelector('.js-pause-icon');
+const playButton = clockContainerDiv.querySelector('.js-play-button');
+const pauseButton = clockContainerDiv.querySelector('.js-pause-button');
 const modalDiv = document.querySelector('.js-modal');
 const modalCloseBtn = modalDiv.querySelector('.js-modal-close-button');
 const modalBtn = modalDiv.querySelector('.js-modal-button')
@@ -25,16 +25,21 @@ modalCloseBtn.addEventListener('click', closeModal);
 modalBtn.addEventListener('click', closeModal);
 
 clockButtonsUl.addEventListener('click', event => {
-  if (event.target.classList.contains('inactive-icon')) {
-    return;
-  }
-  if (event.target.classList.contains('js-play-icon')) {
-    play(event);
-  } else if (event.target.classList.contains('js-pause-icon')) {
-    pause(event);
-  } else if (event.target.classList.contains('js-stop-icon')) {
+  const button = event.target.closest('button');
+  if (!button) return;
+  if (!clockButtonsUl.contains(button)) return;
+  if (button.disabled) return;
+  if (button.classList.contains('js-play-button')) {
+    console.log('play')
+    play(button);
+  } else if (button.classList.contains('js-pause-button')) {
+    console.log('pause')
+    pause(button);
+  } else if (button.classList.contains('js-stop-button')) {
+    console.log('stop')
     stop();
-  } else if (event.target.classList.contains('js-restart-icon')) {
+  } else if (button.classList.contains('js-restart-button')) {
+    console.log('restart')
     restart();
   }
 });
@@ -91,15 +96,19 @@ function toggleClock() {
   clockContainerDiv.style.display = window.getComputedStyle(clockContainerDiv).display === 'block' ? 'none' : 'block';
 }
 
-function pause(event) {
-  event.target.classList.add('inactive-icon');
-  playIcon.classList.remove('inactive-icon');
+function pause(btn) {
+  // btn.classList.add('inactive-button');
+  // playButton.classList.remove('inactive-button');
+  btn.disabled = 'true';
+  playButton.disabled = '';
   clearInterval(medTimer);
 }
 
-function play(event) {
-  event.target.classList.add('inactive-icon');
-  pauseIcon.classList.remove('inactive-icon');
+function play(btn) {
+  btn.disabled = 'disabled';
+  pauseButton.disabled = '';
+  // btn.classList.add('inactive-button');
+  // pauseButton.classList.remove('inactive-button');
   timer(secondsLeft);
 }
 
@@ -109,9 +118,9 @@ function stop() {
   toggleClock();
   toggleTimeForm();
   // Make play inactive and pause active if you click stop while paused.
-  if (pauseIcon.classList.contains('inactive-icon')) {
-    playIcon.classList.add('inactive-icon');
-    pauseIcon.classList.remove('inactive-icon');
+  if (pauseButton.disabled) {
+    playButton.disabled = 'true';
+    pauseButton.disabled = '';
   }
 }
 

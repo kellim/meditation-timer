@@ -85,22 +85,41 @@ body {
 }
 
 .clock-buttons {
-  color: rgba(0, 0, 0, 0.54);
   display: flex;
   justify-content: space-around;
   list-style-type: none;
-  padding: 1.2rem 10rem;
-  font-size: 2.4rem;
+  padding: 1.4rem 10rem;
   text-align: center;
 }
 
-.inactive-icon {
-  color: rgba(0, 0, 0, 0.26);
+.clock-buttons li {
+  display: inline;
 }
 
 .clock-button {
-  display: inline;
+  border: none;
+  font-size: 2.4rem;
+  color: rgba(0, 0, 0, 0.54);
+  background-color: transparent;
+  transition: all .2s;
 }
+
+.clock-button:hover:not([disabled]) {
+  color: rgba(178,74,89, 0.75);
+}
+
+.clock-button:focus,
+.clock-button:active {
+  outline: none;
+  color:  rgba(0, 0, 0, 0.80);
+}
+
+.clock-button:disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+/* .inactive-button {
+  color: rgba(0, 0, 0, 0.26);
+} */
 
 .clock {
   font-size: 7rem;
