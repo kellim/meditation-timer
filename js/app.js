@@ -97,16 +97,21 @@ function toggleClock() {
 }
 
 function pause(btn) {
-  // btn.classList.add('inactive-button');
-  // playButton.classList.remove('inactive-button');
+  // enable play button, disable pause button
   btn.disabled = 'true';
   playButton.disabled = '';
   clearInterval(medTimer);
 }
 
+function enablePauseButton() {
+  if (pauseButton.disabled) {
+    playButton.disabled = 'true';
+    pauseButton.disabled = '';
+  }
+}
+
 function play(btn) {
-  btn.disabled = 'disabled';
-  pauseButton.disabled = '';
+  enablePauseButton();
   // btn.classList.add('inactive-button');
   // pauseButton.classList.remove('inactive-button');
   timer(secondsLeft);
@@ -117,14 +122,13 @@ function stop() {
   medTimer = null;
   toggleClock();
   toggleTimeForm();
-  // Make play inactive and pause active if you click stop while paused.
-  if (pauseButton.disabled) {
-    playButton.disabled = 'true';
-    pauseButton.disabled = '';
-  }
+  // The pause button must be enabled when stopping the game
+  enablePauseButton();
 }
 
 function restart() {
+  // The pause button must be enabled upon restart.
+  enablePauseButton();
   clearInterval(medTimer);
   timer(seconds);
 }
