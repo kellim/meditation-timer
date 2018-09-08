@@ -12,6 +12,7 @@ html {
 
 body {
   box-sizing: border-box;
+  color: #484848;
 }
 
 .main {
@@ -62,11 +63,15 @@ body {
   margin-bottom: 1rem;
 }
 
-.timer-button {
+
+.button {
   background-color: #ffb6c1;
   border: none;
   border-radius: 10rem;
   cursor: pointer;
+}
+
+.timer-button {
   display: block;
   margin: 0 auto;
   font-size: 2.4rem;
@@ -99,4 +104,52 @@ body {
 
 .clock {
   font-size: 7rem;
+}
+
+.modal {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 100;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: .75rem 16rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.modal-button {
+  padding: 1rem 5rem;
+  margin: 2rem 0 2rem 0;
+  font-size: 1.8rem;
+}
+
+.modal-text {
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.modal-icon {
+  font-size: 10rem;
+  margin-top: 2rem;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  font-size: 2.4rem;
+}
+
+.modal-close-button:hover {
+  color: #b24a59;
 }
