@@ -2,7 +2,7 @@
 
 ## DEMO
 
-http://meditationtimer.surge.sh/
+https://meditationtimer.surge.sh
 
 ## Description
 This app lets you enter the amount of time you'd like to meditate, then a clock counts down from the input time to 00:00:00.
