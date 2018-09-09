@@ -7,11 +7,6 @@ While the clock is counting down, you can pause the time and resume it, stop the
 ## Setup
 Clone this repository and open `index.html` in a web browser.
 
-## TODO
-
-* Play a sound and show a message when the timer gets to 00:00:00.
-* Add media queries
-
 ## Technologies Used
 * JavaScript
 * [Google Fonts](https://fonts.google.com/)
