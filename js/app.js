@@ -10,11 +10,10 @@ const playButton = clockContainerDiv.querySelector('.js-play-button');
 const pauseButton = clockContainerDiv.querySelector('.js-pause-button');
 const modalDiv = document.querySelector('.js-modal');
 const modalCloseBtn = modalDiv.querySelector('.js-modal-close-button');
-const modalBtn = modalDiv.querySelector('.js-modal-button')
+const modalBtn = modalDiv.querySelector('.js-modal-button');
+const timesUpAudio = document.querySelector('.js-times-up-sound');
 let medTimer;
 let seconds, secondsLeft;
-
-
 
 timeForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -30,16 +29,12 @@ clockButtonsUl.addEventListener('click', event => {
   if (!clockButtonsUl.contains(button)) return;
   if (button.disabled) return;
   if (button.classList.contains('js-play-button')) {
-    console.log('play')
     play(button);
   } else if (button.classList.contains('js-pause-button')) {
-    console.log('pause')
     pause(button);
   } else if (button.classList.contains('js-stop-button')) {
-    console.log('stop')
     stop();
   } else if (button.classList.contains('js-restart-button')) {
-    console.log('restart')
     restart();
   }
 });
@@ -74,6 +69,7 @@ function timer(seconds) {
   medTimer = setInterval(() => {
     secondsLeft = Math.round((then - Date.now()) / 1000);
     if (secondsLeft <= 0) {
+      timesUpAudio.play();
       clearInterval(medTimer);
       openModal();
     }
