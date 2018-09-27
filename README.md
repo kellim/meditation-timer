@@ -9,6 +9,8 @@ Try it out at https://meditationtimer.surge.sh
 
 And here are some screenshots:
 
+![Meditation Timer App Input](https://github.com/kellim/meditation-timer/blob/master/screenshots/meditation-timer-input.png)
+
 ![Meditation Timer App](https://github.com/kellim/meditation-timer/blob/master/screenshots/meditation-timer.png)
 
 ![Meditation Timer - Time's Up!](https://github.com/kellim/meditation-timer/blob/master/screenshots/times-up.png)
