@@ -30,4 +30,4 @@ This is a small personal project and I plan to keep this app simple. If you'd li
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](https://github.com/kellim/meditation-timer/blob/master/LICENSE) for details.
+This code in this project is licensed under the MIT License. See [LICENSE](https://github.com/kellim/meditation-timer/blob/master/LICENSE) for details.
