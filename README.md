@@ -5,7 +5,7 @@ While the clock is counting down, you can pause the time and resume it, stop the
 
 ## Demo
 
-Try it out at https://meditationtimer.surge.sh
+Try it out at https://meditationtimer.kelli.app/
 
 And here are some screenshots:
 
